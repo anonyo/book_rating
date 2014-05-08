@@ -30,15 +30,13 @@ if (Meteor.isServer) {
   });
 
 } else if (Meteor.isClient) {
-  
-
 
     Meteor.subscribe("books");
-    Template.booksList.books = function() {
+    Template.BookList.books = function() {
       return Books.find({}, { sort: {votes: -1}}); 
     };
 
-   Template.booksList.events({
+   Template.BookList.events({
       "click .upvote": function() {
       	Meteor.call("upvote", this._id);
       }, 
