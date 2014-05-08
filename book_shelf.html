@@ -1,0 +1,43 @@
+<head>
+  <title>Book Shelf</title>
+</head>
+
+<body>
+  <div class="container">
+  {{> header}}
+  {{> BookList}}
+  {{> newBook}}
+  </div>
+</body>
+
+<template name="header">
+  <h2>My awesome books</h2>
+  <h3>let the best book win!</h3>
+</template>
+
+<template name="BookList">
+  <ul>
+    {{#each books}}
+    <li>
+      <b>
+        {{title}}
+      </b> by {{author}}
+      ({{votes}} votes)
+      <input type ="button" class="upvote" value="Upvote" />
+      <input type ="button" class="downvote" value="Downvote" />
+
+    </li>
+    {{/each}}
+  </ul>
+  </template>
+
+<template name="newBook">
+  <form class="form-inline newBookForm">
+    Title: <input type="text" class="title" />
+    Author: <input type="text" class="author" />
+    <input type="submit" value="Add" />
+  </form>
+</template>
+
+
+
